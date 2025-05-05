@@ -1,0 +1,13 @@
+begin feeling focused
+
+set energy to 0
+define mood happy as energy = 5
+
+do it again until I feel happy
+    say "Not Happy Yet!"
+    uplift energy
+end again
+
+say "Now, I am happy!"
+
+end

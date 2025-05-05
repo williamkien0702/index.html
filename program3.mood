@@ -1,0 +1,18 @@
+begin feeling furious
+set num to 31
+
+if num feels stronger than 30
+    say "stronger"
+    diminish num
+end if
+
+if num feels as strong as 30
+    say "same level"
+    diminish num
+end if
+
+if num feels weaker than 30
+    say "weaker"         
+end if
+
+end

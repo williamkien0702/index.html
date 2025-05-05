@@ -1,0 +1,35 @@
+begin feeling epic
+
+// Mood Setup
+set energy to 5
+set limit to 5
+define mood hyped as energy = 2
+define mood tired as energy = 0
+
+//  While Loop
+do it again until I feel tired
+    say "Not tired yet"
+    diminish energy
+end again
+
+
+// Condition check with comparison
+if energy feels weaker than limit
+    say "Energy is low!"
+else
+    say "Still doing great!"
+end if
+
+// Arithmetic Say Expression
+say energy elevate 2
+say energy intensify 5
+
+// For Loop counting down
+loop from count = 1 to 10:
+    if count harmonize hyped
+        say "Keep Hyping!"
+    end if
+end loop
+
+
+end

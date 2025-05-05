@@ -1,0 +1,112 @@
+Program:
+    'begin' 'feeling' mood=ID
+    statements+=Statement*
+    'end'
+;
+
+Statement:
+    FeelTired | FeelBoredStatement | Assignment | MoodDefinition | ConditionBlock
+    | WhileLoop | ForLoop | SayExpr | SayString | SayVar  
+    | UpliftStatement | DiminishStatement | MathStatement 
+;
+
+FeelBoredStatement:
+    'feeling' 'bored' | 'I' 'feel' 'bored'
+;
+
+FeelTired:
+    'feeling' 'tired' | 'I' 'feel' 'tired'
+;
+
+Assignment:
+    'set' var=ID 'to' value=INT
+;
+
+
+MoodDefinition:
+    'define' 'mood' name=ID 'as' var=ID '=' value=INT
+;
+
+SayExpr:
+    'say' expr=Expression
+;
+
+SayString:
+    'say' msg=STRING
+;
+
+SayVar:
+    'say' var=ID
+;
+
+ConditionBlock:
+    'if' if_expr=Expression
+    if_statements+=Statement*
+    (elif_blocks+=ElifBlock)*
+    ('else' else_statements+=Statement*)?
+    'end' 'if'
+;
+
+ElifBlock:
+    'else' 'if' elif_expr=Expression
+    elif_statements+=Statement*
+;
+
+LoopType:
+   'if' | 'until'
+;
+
+WhileLoop:
+    'do' 'it' 'again' 'until' 'I' 'feel' mood=ID
+    statements+=Statement*
+    'end' 'again'
+;
+
+ForLoop:
+    'loop' 'from' var=ID '=' start=INT 'to' end=INT ':'
+    statements+=Statement*
+    'end' 'loop'
+;
+
+
+UpliftStatement:
+    'uplift' var=ID
+;
+
+DiminishStatement:
+    'diminish' var=ID
+;
+
+MathStatement:
+    expr=Expression
+;
+
+Expression:
+    left=Term op=Operator right=Term
+;
+
+Term:
+    ID | INT | MoodReference
+;
+
+MoodReference:
+    mood=ID
+;
+
+Operator:
+    'elevate' | 'drain' | 'intensify' | 'unwind' | 'harmonize'
+    | 'feels stronger than' 
+    | 'feels weaker than'
+    | 'feels no less than' 
+    | 'feels no stronger than'
+    | 'feels as strong as' 
+    | 'feels not as strong'
+;
+
+Comment:
+    /\/\/.*$/
+;
+
+STRING:
+    '"' /[^"]*/ '"'
+;

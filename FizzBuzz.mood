@@ -1,0 +1,20 @@
+begin feeling focused
+
+define mood happy as energy = 3
+define mood blissful as energy = 5
+define mood overjoyed as energy = 15
+// For loop
+loop from num =1 to 30:
+    if num harmonize overjoyed
+        say "FizzBuzz"
+    else if num harmonize happy
+        say "Fizz"
+    else if num harmonize blissful
+        say "Buzz"
+    else
+        say  num
+    end if
+
+end loop
+
+end
